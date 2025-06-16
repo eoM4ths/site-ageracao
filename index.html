@@ -404,6 +404,15 @@
             opacity: 1;
             margin-top: 1rem;
         }
+        #mobile-menu {
+            overflow: hidden;
+            max-height: 0;
+            transition: max-height 0.3s ease;
+        }
+
+        #mobile-menu.open {
+            max-height: 500px; /* ou um valor que comporte o conteúdo */
+        }
 
         
         /* @keyframes autoScroll {
@@ -602,7 +611,7 @@
 funcionamento, superando suas expectativas na qualidade do atendimento e garantir o objetivo e
 sustentabilidade dos nossos negócios. </p>
                     
-                    <a href="#contact" class="inline-block bg-primary text-white px-6 py-3 rounded-md font-semibold hover:bg-opacity-90 transition duration-300">Conheça Nossa Equipe</a>
+                    <a href="https://wa.me/5511995302582" target="_blank" class="inline-block bg-primary text-white px-6 py-3 rounded-md font-semibold hover:bg-opacity-90 transition duration-300">Gostou? Entre em contato!</a>
                 </div>
                 
                 <div class="bg-white p-8 rounded-lg shadow-lg">
@@ -967,15 +976,15 @@ sustentabilidade dos nossos negócios. </p>
                     <h4 class="text-lg font-semibold mb-6">Contato</h4>
                     <ul class="space-y-3">
                         <li class="flex items-center">
-                            <i class="fas fa-phone mr-3 text-secondary"></i>
+                            <i class="fas fa-phone mr-3 text-primary"></i>
                             <span>(11) 2677-6172</span>
                         </li>
                         <li class="flex items-center">
-                            <i class="fas fa-envelope mr-3 text-secondary"></i>
+                            <i class="fas fa-envelope mr-3 text-primary"></i>
                             <span>contato@ageracao.com.br</span>
                         </li>
                         <li class="flex items-start">
-                            <i class="fas fa-map-marker-alt mr-3 text-secondary mt-1"></i>
+                            <i class="fas fa-map-marker-alt mr-3 text-primary mt-1"></i>
                             <span>Av. Exemplo, 1234 - Bairro<br>São Paulo - SP, 01234-567</span>
                             </li>
                             </ul>
@@ -1147,4 +1156,28 @@ document.addEventListener('DOMContentLoaded', function() {
             window.open(whatsappUrl, '_blank');
         });
     </script>
+    <script>
+  const menuBtn = document.getElementById("mobile-menu-button");
+  const mobileMenu = document.getElementById("mobile-menu");
+
+  menuBtn.addEventListener("click", () => {
+    mobileMenu.classList.toggle("open");
+
+    // Alterna a visibilidade extra para acessibilidade
+    if (mobileMenu.classList.contains("open")) {
+      mobileMenu.style.display = "block";
+    } else {
+      setTimeout(() => {
+        // Aguarda a animação terminar antes de esconder
+        mobileMenu.style.display = "none";
+      }, 300);
+    }
+  });
+
+  // Garante que o menu esteja oculto inicialmente
+  window.addEventListener("load", () => {
+    mobileMenu.style.display = "none";
+  });
+</script>
+
 </html>
